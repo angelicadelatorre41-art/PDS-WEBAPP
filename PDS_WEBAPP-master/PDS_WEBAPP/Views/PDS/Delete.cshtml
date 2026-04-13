@@ -1,0 +1,46 @@
+@model PDS_WebApp.Models.PersonalDataSheet
+
+@{
+    ViewData["Title"] = "Delete Record";
+}
+
+<h2>Delete Record</h2>
+<hr />
+
+<div class="alert alert-danger">
+    <h4>Are you sure you want to delete this record?</h4>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-danger text-white fw-bold">Record to be Deleted</div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Full Name</dt>
+            <dd class="col-sm-9">@Model.FullName</dd>
+
+            <dt class="col-sm-3">Date of Birth</dt>
+            <dd class="col-sm-9">@Model.DateOfBirth.ToString("MMMM dd, yyyy")</dd>
+
+            <dt class="col-sm-3">Sex</dt>
+            <dd class="col-sm-9">@Model.Sex</dd>
+
+            <dt class="col-sm-3">Civil Status</dt>
+            <dd class="col-sm-9">@Model.CivilStatus</dd>
+
+            <dt class="col-sm-3">Mobile Number</dt>
+            <dd class="col-sm-9">@Model.MobileNumber</dd>
+
+            <dt class="col-sm-3">Email Address</dt>
+            <dd class="col-sm-9">@Model.EmailAddress</dd>
+
+            <dt class="col-sm-3">Residential Address</dt>
+            <dd class="col-sm-9">@Model.ResidentialAddress</dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

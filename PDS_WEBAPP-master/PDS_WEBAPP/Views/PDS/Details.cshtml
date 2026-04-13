@@ -1,0 +1,66 @@
+@model PDS_WebApp.Models.PersonalDataSheet
+
+@{
+    ViewData["Title"] = "PDS Details";
+}
+
+<h2>Personal Data Sheet - Details</h2>
+<hr />
+
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white fw-bold">I. Personal Information</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3 mb-2"><strong>Last Name:</strong><br />@Model.LastName</div>
+            <div class="col-md-3 mb-2"><strong>First Name:</strong><br />@Model.FirstName</div>
+            <div class="col-md-3 mb-2"><strong>Middle Name:</strong><br />@(Model.MiddleName ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>Name Extension:</strong><br />@(Model.NameExtension ?? "N/A")</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-2"><strong>Date of Birth:</strong><br />@Model.DateOfBirth.ToString("MMMM dd, yyyy")</div>
+            <div class="col-md-4 mb-2"><strong>Place of Birth:</strong><br />@Model.PlaceOfBirth</div>
+            <div class="col-md-2 mb-2"><strong>Sex:</strong><br />@Model.Sex</div>
+            <div class="col-md-3 mb-2"><strong>Civil Status:</strong><br />@Model.CivilStatus</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 mb-2"><strong>Height (m):</strong><br />@(Model.Height?.ToString() ?? "N/A")</div>
+            <div class="col-md-2 mb-2"><strong>Weight (kg):</strong><br />@(Model.Weight?.ToString() ?? "N/A")</div>
+            <div class="col-md-2 mb-2"><strong>Blood Type:</strong><br />@(Model.BloodType ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>Citizenship:</strong><br />@(Model.Citizenship ?? "N/A")</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-2"><strong>GSIS ID No.:</strong><br />@(Model.GSISIdNo ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>PAG-IBIG ID No.:</strong><br />@(Model.PagIbigIdNo ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>PhilHealth No.:</strong><br />@(Model.PhilHealthNo ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>SSS No.:</strong><br />@(Model.SSSNo ?? "N/A")</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-2"><strong>TIN No.:</strong><br />@(Model.TINNo ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>Agency Employee No.:</strong><br />@(Model.AgencyEmployeeNo ?? "N/A")</div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-secondary text-white fw-bold">II. Contact Information</div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9 mb-2"><strong>Residential Address:</strong><br />@Model.ResidentialAddress</div>
+            <div class="col-md-3 mb-2"><strong>Zip Code:</strong><br />@(Model.ResidentialZipCode ?? "N/A")</div>
+        </div>
+        <div class="row">
+            <div class="col-md-9 mb-2"><strong>Permanent Address:</strong><br />@(Model.PermanentAddress ?? "N/A")</div>
+            <div class="col-md-3 mb-2"><strong>Zip Code:</strong><br />@(Model.PermanentZipCode ?? "N/A")</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-2"><strong>Mobile Number:</strong><br />@Model.MobileNumber</div>
+            <div class="col-md-4 mb-2"><strong>Telephone No.:</strong><br />@(Model.TelephoneNo ?? "N/A")</div>
+            <div class="col-md-4 mb-2"><strong>Email Address:</strong><br />@Model.EmailAddress</div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex gap-2">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
